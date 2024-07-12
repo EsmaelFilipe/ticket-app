@@ -1,7 +1,11 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
-import { faTicket } from "@fortawesome/free-solid-svg-icons";
+import {
+  faBlog,
+  faRectangleTimes,
+  faTicket,
+} from "@fortawesome/free-solid-svg-icons";
 import { faHome } from "@fortawesome/free-solid-svg-icons";
 
 const NavPage = () => {
@@ -15,8 +19,11 @@ const NavPage = () => {
           <FontAwesomeIcon icon={faTicket} className="icon" />
         </Link>
       </div>
-      <div>
-        <p className="text-2l">esmaelfilipe0804@gmail.com</p>
+      <div className="flex items-center justify-center space-x-4">
+        <Link href="/TicketPage/new">
+          <FontAwesomeIcon icon={faBlog} className="icon" />
+        </Link>
+        <p className="text-2l text-default-text">esmaelfilipse0804@gmail.com</p>
       </div>
     </nav>
   );
