@@ -24,6 +24,16 @@
   p{
     @apply text-sm text-default-text
   }
+
+  form {
+    @apply rounded-xl p-4
+  }
+  label {
+    @apply mt-4
+  }
+  input, select, textarea{
+    @apply m-1 rounded bg-card p-1
+  }
 }
 
 @layer components {
@@ -31,10 +41,11 @@
     @apply text-default-text text-xl; 
   }
 
-  .btn{
-    @apply hover:no-underline bg-blue-accent hover: bg-blue-accent-hover tracking-wider w-full text-center text-nav font-bold cursor-pointer px-4 py-2 rounded-md transition-colors block;
-    
+
+  .btn {
+    @apply hover:no-underline bg-blue-accent hover:bg-blue-accent-hover tracking-wider w-full text-center text-nav font-bold cursor-pointer px-4 py-2 rounded-md transition-colors block;
   }
+  
   .title {
     @apply text-default-text
   }
