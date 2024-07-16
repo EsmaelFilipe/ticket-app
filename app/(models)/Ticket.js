@@ -1,23 +1,34 @@
-import mongoose, { Schema } from "mongoose";
+import mongoose from "mongoose";
 
-mongoose.connect(process.env.MONGO_URI);
-mongoose.Promise = global.Promise;
-
-const ticketSchema = new Schema(
+const ticketSchema = new mongoose.Schema(
   {
-    title: String,
-    description: String,
+    title: {
+      type: String,
+      required: true,
+    },
+    description: {
+      type: String,
+      required: true,
+    },
     category: String,
-    priority: Number,
-    status: String,
-    active: Boolean,
+    priority: {
+      type: Number,
+      default: 1,
+    },
+    status: {
+      type: String,
+      default: "open",
+    },
+    active: {
+      type: Boolean,
+      default: true,
+    },
   },
   {
     timestamps: true,
   }
 );
 
-const Ticket =
-  mongoose.models.Ticket || mongoose.models("Ticket, ticketSchema");
+const Ticket = mongoose.models.Ticket || mongoose.model("Ticket", ticketSchema);
 
 export default Ticket;
