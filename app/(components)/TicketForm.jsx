@@ -36,17 +36,6 @@ const TicketForm = () => {
       setError("Failed to create tickets. Please try again later", error);
     }
 
-    // const res = await fetch("/api/Tickets", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify({ formData }),
-    // });
-    // if (!res.ok) {
-    //   throw new Error("failed to create tickets");
-    // }
-
     router.refresh();
     router.push("/");
   };

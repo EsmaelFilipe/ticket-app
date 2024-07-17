@@ -28,3 +28,12 @@ export async function POST(req) {
     );
   }
 }
+
+export async function GET() {
+  try {
+    const tickets = await Ticket.findAll();
+    return NextResponse.json({ tickets }, { status: 200 });
+  } catch (error) {
+    return NextResponse.json({ message: "Error", error }, { status: 500 });
+  }
+}
