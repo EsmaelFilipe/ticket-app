@@ -8,6 +8,7 @@ if (!MONGODB_URI) {
   );
 }
 
+// Create a cached connection variable in the global scope
 let cached = global.mongoose;
 
 if (!cached) {
@@ -15,20 +16,23 @@ if (!cached) {
 }
 
 async function dbConnect() {
+  // If a connection already exists, return it
   if (cached.conn) {
     return cached.conn;
   }
 
+  // If no promise is set, create a new connection promise
   if (!cached.promise) {
     const opts = {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
+      bufferCommands: false, // Disable buffering, useful in production
     };
 
     cached.promise = mongoose.connect(MONGODB_URI, opts).then((mongoose) => {
       return mongoose;
     });
   }
+
+  // Await the promise and set the connection
   cached.conn = await cached.promise;
   return cached.conn;
 }

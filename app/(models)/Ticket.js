@@ -17,7 +17,7 @@ const ticketSchema = new mongoose.Schema(
     },
     status: {
       type: String,
-      default: "open",
+      default: "not started",
     },
     active: {
       type: Boolean,
